@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Screen Space Fluid Rendering</title>
+        
+        <meta charset="UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            canvas {
+                padding-left: 0;
+                padding-right: 0;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                background-color: rgb(255, 255, 255);
+            }
+            
+            body {
+                background-color: rgb(255, 255, 255);
+            }
+            
+            table,
+			td,
+			th {
+				border: 1px solid black;
+			}
+            
+        </style>
+        
+        <script src="main_SSFR.js" type="text/javascript"></script>
+        <script src="camera.js" type="text/javascript"></script>
+        <script src="scene.js" type="text/javascript"></script>
+        <script src="shader.js" type="text/javascript"></script>
+        <script src="program.js" type="text/javascript"></script>
+        <script src="particlesystem.js" type="text/javascript"></script>
+        <script src="webgl-utils.js" type="text/javascript"></script>
+        <script src="jquery-2.1.1.min.js" type="text/javascript"></script>
+        <script src="gl-matrix-min.js" type="text/javascript"></script>
+        <script src="stats.min.js" type="text/javascript"></script>
+        <script src="dat.gui.js" type="text/javascript"></script>
+    </head>
+    <body id="body" align="center">
+        <canvas id="canvas" width="1280" height="720"></canvas>
+        <br>
+        <table align="center">
+        	<tr>
+        		<th>Particle Count</th>
+        		<th>Max. Particles</th>
+                <th>SSFR Calculation</th>
+                <th>Linear Calculations</th>
+                <th>Lambda Shader</th>
+                <th>Constraint Shader</th>
+                <th>Viscosity Shader</th>
+                <th>Particle Draw</th>
+                <th>Color Mixing</th>
+                <th>Thickness Draw</th>
+                <th>Thickness Blur</th>
+                <th>Depth Blur</th>
+                <th>SSFR Compositing</th>
+                <th>Read Positions</th>
+                <th>Read Colors</th>
+       		</tr>
+       		<tr>
+       			<th id="ParticleCountText"></th>
+       			<th id="MaxParticlesText"></th>
+                <th id="SSFRPerformance"></th>
+                
+                <th id="linearCalculations"></th>
+                <th id="lambdaShader"></th>
+                <th id="constraintShader"></th>
+                <th id="viscosityShader"></th>
+                <th id="particleDraw"></th>
+                <th id="colorMixing"></th>
+                <th id="thicknessDraw"></th>
+                <th id="thicknessBlur"></th>
+                <th id="depthBlur"></th>
+                <th id="ssfrComposite"></th>
+                <th id="readPositions"></th>
+                <th id="readColors"></th>
+       		</tr>
+        </table>
+        <br>
+        <b><center>
+            This is a position based fluid simulation for WebGL 2.0 <br>
+            It uses screen space fluid rendering for surface reconstruction <br>
+            Additionally it supports mixing of multiple fluid colors and transparencies<br>
+            <br>
+            Use the W, A, S and D keys to navigate through the scene <br>
+            Go up and down with the Space Bar and the Control Key <br>
+            To alter the view direction, click and drag with your mouse <br>
+            <br>
+            Use the interface to control the simulation <br>
+            To emit particles, press the "P" key <br>
+            <br>
+            This simulation was developed for the Firefox Nightly Browser Version 45.0a1 <br>
+            Your can get it here: <a href="https://ftp.mozilla.org/pub/firefox/nightly/2015/11/2015-11-17-03-02-42-mozilla-central">Nightly Download</a><br>
+            You also need to <a href="https://wiki.mozilla.org/Platform/GFX/WebGL2">enable WebGL 2.0</a><br>
+            <br>
+            You can find the source code <a href="https://github.com/FabST/SSFR">here</a><br>
+
+
+            For further questions contact <a href="mailto:fabian.stoll@tu-ilmenau.de">fabian.stoll@tu-ilmenau.de</a> <br>
+        </center></b>
+        <script>
+            $(document).ready(function() {
+                initWebGL();
+            });
+        </script>
+    </body>
+</html>
